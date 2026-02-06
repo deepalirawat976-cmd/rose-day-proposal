@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Rose Day Vimal 🌹</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle at top,#ff0844,#7a0019);
+  font-family:'Georgia',serif;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+.card{
+  background:rgba(0,0,0,0.45);
+  padding:35px;
+  border-radius:25px;
+  max-width:420px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
+  animation:zoomIn 1.5s ease;
+}
+h1{font-size:2.4em;}
+p{font-size:1.25em;line-height:1.7;}
+.rose{font-size:5em; animation:float 2s infinite;}
+.signature{
+  margin-top:25px;
+  font-size:1.15em;
+  font-style:italic;
+}
+button{
+  margin-top:25px;
+  padding:14px 35px;
+  font-size:1.2em;
+  border:none;
+  border-radius:30px;
+  background:#ff4e50;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+button:hover{
+  background:#ff0844;
+}
+#reaction{
+  display:none;
+  margin-top:20px;
+  font-size:1.3em;
+  animation:fadeIn 1.5s ease;
+}
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+  100%{transform:translateY(0);}
+}
+@keyframes zoomIn{
+  from{opacity:0; transform:scale(0.8);}
+  to{opacity:1; transform:scale(1);}
+}
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+.heart{
+  position:absolute;
+  font-size:1.5em;
+  animation:rise 4s linear infinite;
+}
+@keyframes rise{
+  from{bottom:-10%; opacity:1;}
+  to{bottom:110%; opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="rose">🌹</div>
+  <h1>Happy Rose Day, Vimal</h1>
+  <p>
+    Filmon mein jo mohabbat hoti hai,<br>
+    aaj wahi ek gulaab ke saath tumhare liye 🌹
+  </p>
+  <p>
+    Kya tum meri zindagi ki<br>
+    love story ka hissa banoge? ❤️
+  </p>
+
+  <button onclick="showLove()">YES 💕</button>
+
+  <div id="reaction">
+    💖💖💖<br>
+    <b>“Aur yahin se shuru hoti hai<br>
+    hamari kahaani…” 🎬</b><br><br>
+    Tum meri zindagi ho, Vimal ❤️
+  </div>
+
+  <div class="signature">— Deepali</div>
+</div>
+
+<script>
+function showLove(){
+  document.getElementById("reaction").style.display="block";
+  for(let i=0;i<20;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"%";
+    heart.style.animationDuration=(3+Math.random()*2)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+  }
+}
+</script>
+
+</body>
+</html>

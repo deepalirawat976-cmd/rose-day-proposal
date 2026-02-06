@@ -82,11 +82,6 @@ button:hover{background:#ff0844;}
 
 <body>
 
-<!-- 🎵 Romantic instrumental (auto-plays AFTER YES click) -->
-<audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_946b6f0b1d.mp3" type="audio/mpeg">
-</audio>
-
 <div class="card">
   <div class="rose">🌹</div>
   <h1>Happy Rose Day, Vimal</h1>
@@ -115,10 +110,6 @@ button:hover{background:#ff0844;}
 
 <script>
 function showLove(){
-  // play music (allowed because user clicked)
-  document.getElementById("bgMusic").play();
-
-  // show reaction text
   document.getElementById("reaction").style.display="block";
 
   // 🌸 Rose petal rain
@@ -132,6 +123,14 @@ function showLove(){
     document.body.appendChild(petal);
     setTimeout(()=>petal.remove(),7000);
   }
+
+  // 🎵 Open romantic Bollywood song (guaranteed sound)
+  setTimeout(()=>{
+    window.open(
+      "https://www.youtube.com/watch?v=IJq0yyWug1k", 
+      "_blank"
+    );
+  }, 1200);
 }
 </script>
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +32,9 @@ p{font-size:1.25em;line-height:1.7;}
   font-style:italic;
 }
 button{
-  margin-top:25px;
-  padding:14px 35px;
-  font-size:1.2em;
+  margin-top:15px;
+  padding:14px 30px;
+  font-size:1.1em;
   border:none;
   border-radius:30px;
   background:#ff4e50;
@@ -50,6 +49,21 @@ button:hover{background:#ff0844;}
   font-size:1.3em;
   animation:fadeIn 1.5s ease;
 }
+
+/* Rose petals */
+.petal{
+  position:absolute;
+  top:-10%;
+  font-size:1.6em;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{
+    transform:translateY(120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
 @keyframes float{
   0%{transform:translateY(0);}
   50%{transform:translateY(-12px);}
@@ -63,45 +77,34 @@ button:hover{background:#ff0844;}
   from{opacity:0;}
   to{opacity:1;}
 }
-
-/* 🌸 Rose Petals */
-.petal{
-  position:absolute;
-  top:-10%;
-  font-size:1.8em;
-  animation:fall linear forwards;
-}
-@keyframes fall{
-  to{
-    transform:translateY(120vh) rotate(360deg);
-    opacity:0;
-  }
-}
-
-iframe{display:none;}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 Romantic Bollywood Background Music -->
-<iframe
-  src="https://www.youtube.com/embed/ZXn-Km0X2rA?autoplay=1&mute=1&loop=1&playlist=ZXn-Km0X2rA"
-  allow="autoplay">
-</iframe>
+<!-- 🎵 Romantic Instrumental Music (safe & works) -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_946b6f0b1d.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card">
   <div class="rose">🌹</div>
   <h1>Happy Rose Day, Vimal</h1>
+
   <p>
     Filmon mein jo mohabbat hoti hai,<br>
     aaj wahi ek gulaab ke saath tumhare liye 🌹
   </p>
+
   <p>
     Kya tum meri zindagi ki<br>
     love story ka hissa banoge? ❤️
   </p>
 
+  <!-- Play Music -->
+  <button onclick="playMusic()">Play Music 🎶</button>
+
+  <!-- YES Button -->
   <button onclick="showLove()">YES 💕</button>
 
   <div id="reaction">
@@ -115,15 +118,15 @@ iframe{display:none;}
 </div>
 
 <script>
+function playMusic(){
+  document.getElementById("bgMusic").play();
+}
+
 function showLove(){
   document.getElementById("reaction").style.display="block";
 
-  // Unmute music after interaction
-  document.querySelector("iframe").src =
-   "https://www.youtube.com/embed/ZXn-Km0X2rA?autoplay=1&loop=1&playlist=ZXn-Km0X2rA";
-
-  // 🌸 Rose petal rain
-  for(let i=0;i<30;i++){
+  // Rose petal rain
+  for(let i=0;i<35;i++){
     let petal=document.createElement("div");
     petal.className="petal";
     petal.innerHTML="🌸";

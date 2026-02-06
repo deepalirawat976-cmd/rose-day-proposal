@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +43,7 @@ button{
   cursor:pointer;
   box-shadow:0 8px 20px rgba(0,0,0,0.4);
 }
-button:hover{
-  background:#ff0844;
-}
+button:hover{background:#ff0844;}
 #reaction{
   display:none;
   margin-top:20px;
@@ -64,19 +63,32 @@ button:hover{
   from{opacity:0;}
   to{opacity:1;}
 }
-.heart{
+
+/* 🌸 Rose Petals */
+.petal{
   position:absolute;
-  font-size:1.5em;
-  animation:rise 4s linear infinite;
+  top:-10%;
+  font-size:1.8em;
+  animation:fall linear forwards;
 }
-@keyframes rise{
-  from{bottom:-10%; opacity:1;}
-  to{bottom:110%; opacity:0;}
+@keyframes fall{
+  to{
+    transform:translateY(120vh) rotate(360deg);
+    opacity:0;
+  }
 }
+
+iframe{display:none;}
 </style>
 </head>
 
 <body>
+
+<!-- 🎵 Romantic Bollywood Background Music -->
+<iframe
+  src="https://www.youtube.com/embed/ZXn-Km0X2rA?autoplay=1&mute=1&loop=1&playlist=ZXn-Km0X2rA"
+  allow="autoplay">
+</iframe>
 
 <div class="card">
   <div class="rose">🌹</div>
@@ -93,7 +105,7 @@ button:hover{
   <button onclick="showLove()">YES 💕</button>
 
   <div id="reaction">
-    💖💖💖<br>
+    🌹🌹🌹<br>
     <b>“Aur yahin se shuru hoti hai<br>
     hamari kahaani…” 🎬</b><br><br>
     Tum meri zindagi ho, Vimal ❤️
@@ -105,14 +117,21 @@ button:hover{
 <script>
 function showLove(){
   document.getElementById("reaction").style.display="block";
-  for(let i=0;i<20;i++){
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"%";
-    heart.style.animationDuration=(3+Math.random()*2)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
+
+  // Unmute music after interaction
+  document.querySelector("iframe").src =
+   "https://www.youtube.com/embed/ZXn-Km0X2rA?autoplay=1&loop=1&playlist=ZXn-Km0X2rA";
+
+  // 🌸 Rose petal rain
+  for(let i=0;i<30;i++){
+    let petal=document.createElement("div");
+    petal.className="petal";
+    petal.innerHTML="🌸";
+    petal.style.left=Math.random()*100+"%";
+    petal.style.animationDuration=(4+Math.random()*3)+"s";
+    petal.style.fontSize=(1.2+Math.random()*1.2)+"em";
+    document.body.appendChild(petal);
+    setTimeout(()=>petal.remove(),7000);
   }
 }
 </script>
